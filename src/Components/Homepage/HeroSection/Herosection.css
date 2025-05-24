@@ -1,0 +1,410 @@
+/* Optimized Hero Section Styles */
+
+#HeroSectionContainer {
+    min-height: 800px;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.BackoverlayImage {
+    position: absolute;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background-image: url("https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/inventoryManagement/1035mWPLp6zXWlooG2Lz/678647f276cc20015e38cae1_Background pattern.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+#HeroSectionContainer .ScrollBtn {
+    position: absolute;
+    bottom: 30px;
+    left: 0px;
+    display: inline-flex;
+    align-items: center;
+    color: #e63b3b;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: bounceUpDown 2s ease-in-out infinite;
+}
+
+#HeroSectionContainer .ScrollBtn:hover {
+    color: #c12828;
+    transform: translateY(-2px);
+}
+
+#HeroSectionContainer .ScrollBtn svg {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* Optimized zoom animation - smoother and lighter */
+@keyframes smoothZoom {
+    0%, 100% {
+        transform: rotate(26deg) scale(1);
+    }
+    50% {
+        transform: rotate(26deg) scale(1.05);
+    }
+}
+
+@keyframes bounceUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fireImageHeroSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    animation: slideInRight 1s ease-out;
+}
+
+.fireImageHeroSection div {
+    overflow: hidden;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.fireImageHeroSection div img {
+    width: 100%;
+    height: 100%;
+    transform: rotate(26deg);
+    animation: smoothZoom 4s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    transition: filter 0.3s ease;
+    will-change: transform;
+}
+
+.fireImageHeroSection:hover div img {
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
+}
+
+.LeftSideHeroContentContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Enhanced tag styling */
+.LeftSideHeroContentContainer .tagEdit {
+    background: linear-gradient(45deg, #e63b3b, #ff6b6b) !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 20px !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    box-shadow: 0 4px 15px rgba(230, 59, 59, 0.3);
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.LeftSideHeroContentContainer .SectionHeading {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin: 20px 0;
+    line-height: 1.2;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.LeftSideHeroContentContainer p {
+    font-size: 16px;
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Categories Section Styling - Optimized */
+.CategoriesCardsSection {
+    margin-top: 100px;
+    padding-bottom: 60px;
+}
+
+.category-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 15px;
+    height: 100px;
+    border: 1px solid rgba(230, 59, 59, 0.1);
+    will-change: transform;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    border-color: rgba(230, 59, 59, 0.3);
+}
+
+.category-img {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f5ff, #e6f3ff);
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(230, 59, 59, 0.1), rgba(255, 107, 107, 0.1));
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.category-card:hover .category-img::before {
+    opacity: 1;
+}
+
+.category-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.category-card:hover .category-img img {
+    transform: scale(1.1);
+}
+
+.category-content {
+    padding: 15px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category-content h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    transition: color 0.2s ease;
+}
+
+.category-card:hover .category-content h3 {
+    color: #e63b3b;
+}
+
+.learn-more-btn {
+    color: #e63b3b;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.learn-more-btn:hover {
+    color: #c12828;
+    transform: translateX(3px);
+}
+
+.learn-more-btn svg {
+    margin-left: 5px;
+    font-size: 15px;
+    transition: transform 0.2s ease;
+}
+
+.learn-more-btn:hover svg {
+    transform: translateX(2px);
+}
+
+/* Swiper Controls */
+.mobile-cards {
+    display: none;
+}
+
+.desktop-cards {
+    display: block;
+}
+
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+    background: white;
+    color: #e63b3b;
+    padding: 12px 16px;
+    font-size: 18px;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    width: 45px;
+    height: 45px;
+    border: 2px solid rgba(230, 59, 59, 0.2);
+}
+
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+    background: #e63b3b;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(230, 59, 59, 0.3);
+}
+
+/* Performance optimizations */
+* {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.category-card,
+.fireImageHeroSection div img {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .mobile-cards {
+        display: block;
+    }
+
+    .desktop-cards {
+        display: none;
+    }
+
+    .category-card {
+        height: 90px;
+        margin-bottom: 12px;
+    }
+
+    .category-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .category-content h3 {
+        font-size: 16px;
+    }
+
+    #HeroSectionContainer .ScrollBtn {
+        position: static;
+        margin-top: 30px;
+    }
+
+    .LeftSideHeroContentContainer .SectionHeading {
+        font-size: 2.5rem;
+    }
+
+    .fireImageHeroSection div img {
+        animation: smoothZoom 5s ease-in-out infinite;
+    }
+}
+
+@media (max-width: 768px) {
+    #HeroSectionContainer {
+        min-height: 600px;
+    }
+
+    .LeftSideHeroContentContainer .SectionHeading {
+        font-size: 2rem;
+        margin: 15px 0;
+    }
+
+    .category-card {
+        height: 80px;
+    }
+
+    .category-img {
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+    }
+
+    .category-content {
+        padding: 10px 15px;
+    }
+
+    .category-content h3 {
+        font-size: 15px;
+    }
+
+    .learn-more-btn {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .LeftSideHeroContentContainer .SectionHeading {
+        font-size: 1.8rem;
+    }
+
+    .CategoriesCardsSection {
+        margin-top: 60px;
+    }
+
+    .category-card {
+        height: 75px;
+    }
+
+    .category-img {
+        width: 75px;
+        height: 75px;
+    }
+}

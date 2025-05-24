@@ -1,0 +1,41 @@
+.ImageCollapseStyle {
+    height: 100%;
+    width: 100%;
+    /* background-color: red; */
+    position: absolute;
+    right: 0px;
+}
+#AboutBrandContainer{
+    padding-bottom: 100px;
+}
+
+.ImageCollapseStyle div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.ImageCollapseStyle div img:nth-child(2) {
+    position: absolute;
+    z-index: 5555;
+    left: -20%;
+    width: 59%;
+    height: 67%;
+    top: 55%;
+    border-radius: 20px;
+}
+
+@media (max-width:900px){
+    .ImageCollapseStyle {
+        height: 100%;
+        width: 100%;
+        /* background-color: red; */
+        position: static;
+        right: 0px;
+        margin-top: 30px;
+    }
+    
+    .ImageCollapseStyle div img:nth-child(2) {
+        display: none;
+    }
+}
