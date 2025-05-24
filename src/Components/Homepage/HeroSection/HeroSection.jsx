@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./HeroSection.css"
+import "./Herosection.css"
 import { Row, Col, Tag } from "antd";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { RightOutlined } from "@ant-design/icons";
