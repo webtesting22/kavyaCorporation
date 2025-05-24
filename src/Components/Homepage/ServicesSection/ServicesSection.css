@@ -244,7 +244,7 @@
     font-size: 16px;
     font-weight: 600;
     color: #2d3748;
-    margin: 0 0 8px 0;
+    margin: 0 0 0px 0;
     line-height: 1.4;
     transition: color 0.3s ease;
   }
@@ -350,6 +350,9 @@
   
   /* Responsive Design */
   @media (max-width: 992px) {
+    .services-section-wrapper .team-illustration {
+      left: 150px;
+    }
     .services-section-wrapper .fire-shape svg {
         height: 70% !important;
     }
@@ -395,6 +398,7 @@
   
     .services-section-wrapper .service-card {
       padding: 15px;
+      align-items: center;
     }
   
     .services-section-wrapper .service-icon {
@@ -414,7 +418,7 @@
   
   @media (max-width: 480px) {
     .services-section-wrapper .services-grid .ant-col {
-      margin-bottom: 15px;
+      margin-bottom: 0px;
     }
   
     .services-section-wrapper .SectionHeading {

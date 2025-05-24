@@ -38,4 +38,8 @@
     .ImageCollapseStyle div img:nth-child(2) {
         display: none;
     }
+    #AboutBrandContainer{
+        padding-bottom: 30px;
+    }
+    
 }
