@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from './Components/Homepage/Home'
-import WhatsAppButton from './Components/WhatsappButton/WhatsAppButton'
+import WhatsAppButton from './Components/WhatsappButtonNew/WhatsAppButton'
 function App() {
   return (
     <>
