@@ -5,7 +5,8 @@
     position: absolute;
     right: 0px;
 }
-#AboutBrandContainer{
+
+#AboutBrandContainer {
     padding-bottom: 100px;
 }
 
@@ -25,7 +26,7 @@
     border-radius: 20px;
 }
 
-@media (max-width:900px){
+@media (max-width:900px) {
     .ImageCollapseStyle {
         height: 100%;
         width: 100%;
@@ -34,12 +35,13 @@
         right: 0px;
         margin-top: 30px;
     }
-    
+
     .ImageCollapseStyle div img:nth-child(2) {
         display: none;
     }
-    #AboutBrandContainer{
+
+    #AboutBrandContainer {
         padding-bottom: 30px;
     }
-    
+
 }
