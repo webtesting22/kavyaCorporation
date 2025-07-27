@@ -1,0 +1,162 @@
+/* Global CSS for Page Transitions */
+
+/* Ensure smooth animations */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Page transition container */
+.page-transition-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Prevent layout shifts during animations */
+.page-content {
+  width: 100%;
+  position: relative;
+}
+
+/* Smooth scrolling for better animation experience */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation performance optimizations */
+.animated-element {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Loading state for page transitions */
+.page-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+/* Animation keyframes for additional effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Utility classes for animations */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+/* Ensure components don't interfere with page transitions */
+.navbar {
+  z-index: 1000;
+}
+
+.whatsapp-button {
+  z-index: 999;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, .clickable {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prevent text selection during animations */
+.page-transitioning {
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Responsive considerations for animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .page-transition-container {
+    background: #000;
+    color: #fff;
+  }
+}
+
+
+.marginBottom50{
+    margin-bottom: 50px;
+}
+
+h1{
+    font-size: 46px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    margin-top: 15px;
+}
+
+.section-header{
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+.marginTop100{
+    margin-top: 100px;
+}

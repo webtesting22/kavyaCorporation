@@ -170,27 +170,6 @@
   }
   
 
-  
-  .services-section-wrapper .SectionHeading {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #1a202c;
-    margin: 20px 0;
-    line-height: 1.2;
-    background: linear-gradient(45deg, #2d3748, #4a5568);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .services-section-wrapper .sub-heading {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #e63b3b;
-    margin: 0 0 40px 0;
-    line-height: 1.2;
-  }
-  
   /* Services Grid */
   .services-section-wrapper .services-grid {
     margin-top: 40px;
@@ -370,9 +349,7 @@
       padding-right: 0px;
     }
   
-    .services-section-wrapper .SectionHeading {
-      font-size: 2.5rem;
-    }
+ 
   
     .services-section-wrapper .sub-heading {
       font-size: 2rem;
@@ -387,10 +364,7 @@
     /* .services-section-wrapper .background-graphics {
       display: none;
     } */
-  
-    .services-section-wrapper .SectionHeading {
-      font-size: 2rem;
-    }
+
   
     .services-section-wrapper .sub-heading {
       font-size: 1.5rem;
@@ -421,9 +395,7 @@
       margin-bottom: 0px;
     }
   
-    .services-section-wrapper .SectionHeading {
-      font-size: 1.8rem;
-    }
+
   
     .services-section-wrapper .sub-heading {
       font-size: 1.3rem;

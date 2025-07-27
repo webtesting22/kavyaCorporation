@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 /* Reset some browser defaults */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 /* Set base font and background */
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "DM Sans", sans-serif;
   background-color: #f9f9f9;
   color: #65696C;
   line-height: 1.6;
@@ -54,7 +54,7 @@ select {
 }
 
 p {
-  font-family: "Montserrat", sans-serif;
+  font-family: "DM Sans", sans-serif;
   line-height: 25px;
 }
 
@@ -64,17 +64,7 @@ p {
   position: relative;
 }
 
-.SectionHeading {
-  font-size: 50px;
-  line-height: 55px;
-  font-family: "Montserrat", sans-serif;
-  margin: 20px 0px;
-  color: black !important;
-}
 
-.SectionHeading span {
-  color: #e63b3b;
-}
 
 .tagEdit {
   background: linear-gradient(45deg, #e63b3b, #ff6b6b) !important;
@@ -141,6 +131,10 @@ p {
 
 .paddingRight {
   padding-right: 30px;
+}
+
+.paddingBottom{
+  padding-bottom: 50px;
 }
 
 .btnContainerItem {
@@ -261,13 +255,7 @@ p {
     word-break: break-word;
     overflow-wrap: break-word;
   }
-  .SectionHeading {
-    font-size: 40px;
-    line-height: 48px;
-    font-family: "Montserrat", sans-serif;
-    margin: 20px 0px;
-    color: black !important;
-  }
+
   .paddingRight{
     padding: 0px;
   }

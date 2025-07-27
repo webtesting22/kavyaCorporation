@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaBars, FaTimes, FaChevronDown, FaPhoneAlt } from "react-icons/fa";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from "./logo.png";
 
 const menuItems = [
-  { name: "Home", link: "#home" },
-  { name: "About", link: "#about" },
+  { name: "Home", link: "/" },
+  { name: "About", link: "/about" },
   {
     name: "Products",
     mega: true,
+    link: "/products",
     subMenu: [
       {
         title: "Fire Extinguishers",
@@ -36,6 +38,8 @@ const menuItems = [
 const isMobile = () => window.innerWidth <= 900;
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
   const [showMega, setShowMega] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
@@ -71,10 +75,13 @@ const Navbar = () => {
   }, []);
 
   // Close menu on link click (mobile)
-  const handleLinkClick = () => {
+  const handleLinkClick = (link) => {
     if (mobile) {
       setShowMenu(false);
       setShowMega(false);
+    }
+    if (link && link !== "#") {
+      navigate(link);
     }
   };
 
@@ -92,6 +99,14 @@ const Navbar = () => {
     setShowMega(false);
   };
 
+  // Check if current page is active
+  const isActivePage = (link) => {
+    if (link === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(link);
+  };
+
   return (
     <nav
       className={`navbar${showNavbar ? " show" : " hide"}`}
@@ -99,9 +114,9 @@ const Navbar = () => {
       style={{ background: "#fff" }}
     >
       <div className="navbar-container">
-        <a href="#home" className="navbar-logo" onClick={handleLinkClick}>
+        <div className="navbar-logo" onClick={() => handleLinkClick("/")}>
           <img src={logo} alt="Fire Equipment & Services" />
-        </a>
+        </div>
         <div className="navbar-hamburger" onClick={() => setShowMenu(!showMenu)}>
           {showMenu ? <FaTimes size={28} /> : <FaBars size={28} />}
         </div>
@@ -119,13 +134,13 @@ const Navbar = () => {
               // Accordion for mobile, overlay for desktop
               return (
                 <li
-                  className={`navbar-item mega-menu-parent${showMega && mobile ? " open" : ""}`}
+                  className={`navbar-item mega-menu-parent${showMega && mobile ? " open" : ""}${isActivePage(item.link) ? " active" : ""}`}
                   key={item.name}
                   onMouseEnter={() => !mobile && setShowMega(true)}
                   onMouseLeave={() => !mobile && setShowMega(false)}
                 >
                   <span
-                    onClick={mobile ? handleMegaToggle : undefined}
+                    onClick={mobile ? handleMegaToggle : () => handleLinkClick(item.link)}
                     tabIndex={0}
                     role="button"
                     aria-haspopup="true"
@@ -143,7 +158,7 @@ const Navbar = () => {
                             <ul>
                               {col.items.map((sub, i) => (
                                 <li key={i}>
-                                  <a href="#products" onClick={handleLinkClick}>{sub}</a>
+                                  <span onClick={() => handleLinkClick("/products")}>{sub}</span>
                                 </li>
                               ))}
                             </ul>
@@ -160,7 +175,7 @@ const Navbar = () => {
                             <ul>
                               {col.items.map((sub, i) => (
                                 <li key={i}>
-                                  <a href="#products" onClick={handleLinkClick}>{sub}</a>
+                                  <span onClick={() => handleLinkClick("/products")}>{sub}</span>
                                 </li>
                               ))}
                             </ul>
@@ -173,14 +188,14 @@ const Navbar = () => {
               );
             } else {
               return (
-                <li className="navbar-item" key={item.name}>
-                  <a href={item.link} onClick={handleLinkClick}>{item.name}</a>
+                <li className={`navbar-item${isActivePage(item.link) ? " active" : ""}`} key={item.name}>
+                  <span onClick={() => handleLinkClick(item.link)}>{item.name}</span>
                 </li>
               );
             }
           })}
           <li className="navbar-item navbar-contact">
-            <a href="tel:+911234567890" className="contact-btn" onClick={handleLinkClick}>
+            <a href="tel:+911234567890" className="contact-btn" onClick={() => handleLinkClick("#")}>
               <FaPhoneAlt /> Contact
             </a>
           </li>

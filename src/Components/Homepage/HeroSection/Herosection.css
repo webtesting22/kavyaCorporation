@@ -142,14 +142,7 @@
     animation: fadeInUp 1s ease-out 0.2s both;
 }
 
-.LeftSideHeroContentContainer .SectionHeading {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: #1a202c;
-    margin: 20px 0;
-    line-height: 1.2;
-    animation: fadeInUp 1s ease-out 0.4s both;
-}
+
 
 .LeftSideHeroContentContainer p {
     font-size: 16px;
@@ -349,10 +342,7 @@
         margin-top: 30px;
     }
 
-    .LeftSideHeroContentContainer .SectionHeading {
-        font-size: 2.5rem;
-    }
-
+  
     .fireImageHeroSection div img {
         animation: smoothZoom 5s ease-in-out infinite;
     }
@@ -363,10 +353,7 @@
         min-height: 600px;
     }
 
-    .LeftSideHeroContentContainer .SectionHeading {
-        font-size: 2rem;
-        margin: 15px 0;
-    }
+ 
 
     .category-card {
         height: 80px;
@@ -392,9 +379,7 @@
 }
 
 @media (max-width: 480px) {
-    .LeftSideHeroContentContainer .SectionHeading {
-        font-size: 1.8rem;
-    }
+  
 
     .CategoriesCardsSection {
         margin-top: 60px;

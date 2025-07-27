@@ -39,7 +39,7 @@ const AboutBrand = () => {
     }, []);
 
     return (
-        <div id="AboutBrandContainer" className="flexCenter" ref={ref}>
+        <div id="AboutBrandContainer" className="flexCenter marginBottom50" ref={ref}>
             <div className="max-width-container paddingTop">
                 <Row className="full-width">
                     <Col lg={12} md={24}>

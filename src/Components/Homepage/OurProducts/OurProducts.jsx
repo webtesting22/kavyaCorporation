@@ -1,121 +1,125 @@
 import React from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-
-// Import required modules
-import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
-import { Tag } from "antd";
-
-// Import your enhanced CSS file
+import { useNavigate } from "react-router-dom";
 import "./OurProduct.css";
-import ServicesSection from "../ServicesSection/ServicesSection";
 
 const OurProducts = () => {
-    const SwiperData = [
+    const navigate = useNavigate();
+    
+    const products = [
         {
-            image: "https://images.unsplash.com/photo-1722227089176-a981d2544b5f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            title: "Fire Extinguisher",
-            tag: "Portable Safety Equipment"
+            id: 1,
+            image: "/Images/HeroSection/Fire Extinguishers.png",
+            title: "Fire Extinguishers",
+            description: "Multi-purpose fire extinguishers for Class A, B, and C fires. Essential safety equipment for every environment.",
+            category: "Portable Safety",
+            features: ["ABC Rated", "Easy to Use", "Reliable"]
         },
         {
-            image: "https://suresafety.com/pub/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/f/i/fire-hose-reel_1.jpg",
-            title: "Fire Hose Reel System",
-            tag: "Water-Based Suppression"
+            id: 2,
+            image: "/Images/HeroSection/Commercial Systems.jpg",
+            title: "Fire Hose Reel Systems",
+            description: "Robust fire hose reel systems for commercial and industrial applications. Quick response to fire emergencies.",
+            category: "Water-Based Suppression",
+            features: ["High Pressure", "Durable", "Easy Access"]
         },
         {
-            image: "https://images.unsplash.com/photo-1735321626737-f80d9d2076c9?q=80&w=2869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            title: "Fire Hydrant System",
-            tag: "Emergency Water Supply"
+            id: 3,
+            image: "/Images/HeroSection/Fire Alarm Systems.jpg",
+            title: "Fire Alarm Systems",
+            description: "Advanced fire detection and alarm systems with early warning capabilities. Protect lives and property.",
+            category: "Detection & Alert",
+            features: ["Early Detection", "Wireless", "24/7 Monitoring"]
         },
         {
-            image: "https://images.unsplash.com/photo-1614519473079-44574d3f4389?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            title: "Fire Alarm System",
-            tag: "Early Detection System"
+            id: 4,
+            image: "/Images/HeroSection/Exit Lighting.jpg",
+            title: "Emergency Lighting",
+            description: "High-visibility emergency and exit lighting systems for safe evacuation during emergencies.",
+            category: "Emergency Lighting",
+            features: ["LED Technology", "Battery Backup", "High Visibility"]
         },
-        // {
-        //     image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        //     title: "Sprinkler System",
-        //     tag: "Automatic Suppression"
-        // },
-        // {
-        //     image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        //     title: "Emergency Exit Signs",
-        //     tag: "Safety Navigation"
-        // }
+        {
+            id: 5,
+            image: "/Images/HeroSection/Hood Cleaning Service.jpg",
+            title: "Kitchen Hood Systems",
+            description: "Professional kitchen hood cleaning and fire suppression systems for commercial kitchens.",
+            category: "Kitchen Safety",
+            features: ["NFPA Compliant", "Automatic", "Regular Maintenance"]
+        },
+        {
+            id: 6,
+            image: "/Images/HeroSection/Firestystem2.jpg",
+            title: "Sprinkler Systems",
+            description: "Automatic fire sprinkler systems for comprehensive fire protection in buildings.",
+            category: "Automatic Suppression",
+            features: ["Automatic", "Reliable", "Code Compliant"]
+        }
     ];
 
-    const MainHeading = "Our Services";
-    const tag = "Our Products";
-
     return (
-        <>
-        <div className="our-products-wrapper paddingTop flexCenter">
-            <div id="OurProductsContainer">
-                <div className="max-width-container" style={{ width: "100%" }}>
-                   <div style={{display:"flex",justifyContent:"center"}}>
-                   <Tag className="tagEdit">
-                        {tag}
-                    </Tag>
-                   </div>
-                    <h1 className="SectionHeading" style={{ textAlign: "center" }}>
-                        {MainHeading}
-                    </h1>
-                    
-                    <Swiper
-                        slidesPerView={1}
-                        spaceBetween={30}
-                        freeMode={true}
-                        loop={true}
-                        speed={1000}
-                        autoplay={{
-                            delay: 2000,
-                            disableOnInteraction: false,
-                            pauseOnMouseEnter: true,
-                        }}
-                        pagination={{
-                            clickable: true,
-                            dynamicBullets: true,
-                        }}
-                        breakpoints={{
-                            640: {
-                                slidesPerView: 2,
-                                spaceBetween: 25,
-                            },
-                            1024: {
-                                slidesPerView: 3,
-                                spaceBetween: 30,
-                            },
-                        }}
-                        modules={[FreeMode, Pagination, Autoplay]}
-                        className="mySwiper"
-                    >
-                        {SwiperData.map((item, index) => (
-                            <SwiperSlide key={index}>
-                                <div className="CardSwiper">
-                                    <div className="ImageContainerEdit">
-                                        <img src={item.image} alt={item.title} />
-                                    </div>
-                                    <div className="SwiperTitle">
-                                        <h3>{item.title}</h3>
-                                        <p>({item.tag})</p>
+        <section className="our-products-section paddingTop paddingBottom">
+            <div className="container">
+                {/* Header Section */}
+                <div className="section-header">
+                    <div className="section-badge">Our Products</div>
+                    <h2 className="section-title">Professional Fire Safety Solutions</h2>
+                    <p className="section-subtitle">
+                        Comprehensive fire protection systems designed to safeguard your property and protect lives
+                    </p>
+                </div>
+
+                {/* Products Grid */}
+                <div className="products-grid">
+                    {products.map((product) => (
+                        <div 
+                            key={product.id} 
+                            className="product-card"
+                            onClick={() => navigate(`/products/${product.id}`)}
+                        >
+                            <div className="card-image-container">
+                                <img 
+                                    src={product.image} 
+                                    alt={product.title}
+                                    className="card-image"
+                                />
+                                <div className="image-overlay">
+                                    <div className="overlay-content">
+                                        <span className="view-details">View Details</span>
                                     </div>
                                 </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                            </div>
+                            
+                            <div className="card-content">
+                                <div className="category-badge">{product.category}</div>
+                                <h3 className="product-title">{product.title}</h3>
+                                <p className="product-description">{product.description}</p>
+                                
+                                <div className="product-features">
+                                    {product.features.map((feature, index) => (
+                                        <span key={index} className="feature-tag">
+                                            {feature}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Call to Action */}
+                <div className="cta-section">
+                    <button 
+                        className="cta-button"
+                        onClick={() => navigate('/products')}
+                    >
+                        View All Products
+                        <svg className="arrow-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
-            
-        </div>
-
-       
-        <ServicesSection/>
-        </>
+        </section>
     );
 };
 
