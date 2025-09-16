@@ -45,7 +45,15 @@ const AboutBrand = () => {
     const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
-
+  const phoneNumber = "9327337171";
+  const message =
+    "🔥 Hello Kavya Fire Protection!\n\nI'm interested in your fire safety services:\n\n✅ Fire Safety Consultation\n✅ Fire Audit & NOC Services\n✅ Fire Fighting System Design\n✅ Equipment Supply & AMC\n✅ Fire Safety Training\n\nPlease provide me with more details and a quotation for my requirements.\n\nThank you!";
+  const handleWhatsApp = () => {
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappUrl, "_blank");
+  };
   return (
     <div
       id="AboutBrandContainer"
@@ -62,7 +70,7 @@ const AboutBrand = () => {
                 <p>{AboutBrandInfo}</p>
                 <div className="btnContainerItem">
                   {/* <button>Commercial System</button> */}
-                  <button>Contact Us</button>
+                  <button onClick={handleWhatsApp}>Contact Us</button>
                 </div>
               </Skeleton>
             </div>
