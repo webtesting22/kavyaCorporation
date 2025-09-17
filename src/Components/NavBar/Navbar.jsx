@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaBars, FaTimes, FaChevronDown, FaPhoneAlt } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import logo from "./logo.png";
+import logo from "./logo.jpg";
 
 const menuItems = [
   { name: "Home", link: "/" },
@@ -14,25 +14,25 @@ const menuItems = [
     subMenu: [
       {
         title: "Fire Extinguishers",
-        items: ["ABC Type", "CO2 Type", "Water Type", "Foam Type"]
+        items: ["ABC Type", "CO2 Type", "Water Type", "Foam Type"],
       },
       {
         title: "Fire Alarm Systems",
-        items: ["Conventional", "Addressable", "Wireless"]
+        items: ["Conventional", "Addressable", "Wireless"],
       },
       {
         title: "Exit & Emergency Lighting",
-        items: ["LED Exit Signs", "Emergency Lights"]
+        items: ["LED Exit Signs", "Emergency Lights"],
       },
       {
         title: "Accessories",
-        items: ["Hoses", "Nozzles", "Brackets"]
-      }
-    ]
+        items: ["Hoses", "Nozzles", "Brackets"],
+      },
+    ],
   },
   { name: "Services", link: "#services" },
   { name: "Training", link: "#training" },
-  { name: "Contact", link: "#contact" }
+  { name: "Contact", link: "#contact" },
 ];
 
 const isMobile = () => window.innerWidth <= 900;
@@ -117,7 +117,10 @@ const Navbar = () => {
         <div className="navbar-logo" onClick={() => handleLinkClick("/")}>
           <img src={logo} alt="Fire Equipment & Services" />
         </div>
-        <div className="navbar-hamburger" onClick={() => setShowMenu(!showMenu)}>
+        <div
+          className="navbar-hamburger"
+          onClick={() => setShowMenu(!showMenu)}
+        >
           {showMenu ? <FaTimes size={28} /> : <FaBars size={28} />}
         </div>
         <ul className={`navbar-menu${showMenu ? " active" : ""}`}>
@@ -134,23 +137,38 @@ const Navbar = () => {
               // Accordion for mobile, overlay for desktop
               return (
                 <li
-                  className={`navbar-item mega-menu-parent${showMega && mobile ? " open" : ""}${isActivePage(item.link) ? " active" : ""}`}
+                  className={`navbar-item mega-menu-parent${
+                    showMega && mobile ? " open" : ""
+                  }${isActivePage(item.link) ? " active" : ""}`}
                   key={item.name}
                   onMouseEnter={() => !mobile && setShowMega(true)}
                   onMouseLeave={() => !mobile && setShowMega(false)}
                 >
                   <span
-                    onClick={mobile ? handleMegaToggle : () => handleLinkClick(item.link)}
+                    onClick={
+                      mobile
+                        ? handleMegaToggle
+                        : () => handleLinkClick(item.link)
+                    }
                     tabIndex={0}
                     role="button"
                     aria-haspopup="true"
                     aria-expanded={showMega}
                   >
-                    {item.name} <FaChevronDown className={`chevron${showMega && mobile ? " rotate" : ""}`} />
+                    {item.name}{" "}
+                    <FaChevronDown
+                      className={`chevron${
+                        showMega && mobile ? " rotate" : ""
+                      }`}
+                    />
                   </span>
                   {/* Accordion style for mobile */}
                   {mobile ? (
-                    <div className={`mega-menu-accordion${showMega ? " show" : ""}`}>
+                    <div
+                      className={`mega-menu-accordion${
+                        showMega ? " show" : ""
+                      }`}
+                    >
                       <div className="mega-menu-content">
                         {item.subMenu.map((col) => (
                           <div className="mega-menu-col" key={col.title}>
@@ -158,7 +176,11 @@ const Navbar = () => {
                             <ul>
                               {col.items.map((sub, i) => (
                                 <li key={i}>
-                                  <span onClick={() => handleLinkClick("/products")}>{sub}</span>
+                                  <span
+                                    onClick={() => handleLinkClick("/products")}
+                                  >
+                                    {sub}
+                                  </span>
                                 </li>
                               ))}
                             </ul>
@@ -175,7 +197,11 @@ const Navbar = () => {
                             <ul>
                               {col.items.map((sub, i) => (
                                 <li key={i}>
-                                  <span onClick={() => handleLinkClick("/products")}>{sub}</span>
+                                  <span
+                                    onClick={() => handleLinkClick("/products")}
+                                  >
+                                    {sub}
+                                  </span>
                                 </li>
                               ))}
                             </ul>
@@ -188,14 +214,25 @@ const Navbar = () => {
               );
             } else {
               return (
-                <li className={`navbar-item${isActivePage(item.link) ? " active" : ""}`} key={item.name}>
-                  <span onClick={() => handleLinkClick(item.link)}>{item.name}</span>
+                <li
+                  className={`navbar-item${
+                    isActivePage(item.link) ? " active" : ""
+                  }`}
+                  key={item.name}
+                >
+                  <span onClick={() => handleLinkClick(item.link)}>
+                    {item.name}
+                  </span>
                 </li>
               );
             }
           })}
           <li className="navbar-item navbar-contact">
-            <a href="tel:+911234567890" className="contact-btn" onClick={() => handleLinkClick("#")}>
+            <a
+              href="tel:+911234567890"
+              className="contact-btn"
+              onClick={() => handleLinkClick("#")}
+            >
               <FaPhoneAlt /> Contact
             </a>
           </li>

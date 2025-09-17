@@ -43,7 +43,7 @@
 }
 
 .navbar-logo img {
-  height: 50px;
+  height: 80px;
   width: auto;
   object-fit: contain;
 }
@@ -96,7 +96,7 @@
 }
 
 .navbar-item.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 50%;
