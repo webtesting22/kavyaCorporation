@@ -282,7 +282,7 @@ const Navbar = () => {
           })}
           <li className="navbar-item navbar-contact">
             <a
-              href="tel:+911234567890"
+              href="tel:+919327337171"
               className="contact-btn"
               onClick={() => handleLinkClick("#")}
             >
