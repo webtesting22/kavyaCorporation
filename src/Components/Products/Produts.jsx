@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const dummyProducts = [
   // 🔥 Extinguishers
@@ -298,6 +298,15 @@ const categories = [
 const Produts = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  // Handle URL parameters for category filtering
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get("category");
+    if (categoryFromUrl && categories.includes(categoryFromUrl)) {
+      setSelectedCategory(categoryFromUrl);
+    }
+  }, [searchParams]);
 
   const filteredProducts =
     selectedCategory === "All"

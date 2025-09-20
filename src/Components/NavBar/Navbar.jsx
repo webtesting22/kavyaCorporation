@@ -13,20 +13,41 @@ const menuItems = [
     link: "/products",
     subMenu: [
       {
-        title: "Fire Extinguishers",
-        items: ["ABC Type", "CO2 Type", "Water Type", "Foam Type"],
+        title: "Extinguishers",
+        items: ["ABC Powder", "CO2", "Water", "Foam", "Clean Agent"],
       },
       {
-        title: "Fire Alarm Systems",
-        items: ["Conventional", "Addressable", "Wireless"],
+        title: "Hydrant Systems",
+        items: ["Fire Hydrant System", "Pillar Hydrant"],
       },
       {
-        title: "Exit & Emergency Lighting",
-        items: ["LED Exit Signs", "Emergency Lights"],
+        title: "Hose Reels",
+        items: ["Fire Hose Reel System", "Canvas Fire Hose"],
+      },
+      {
+        title: "Alarm & Detection",
+        items: [
+          "Control Panel",
+          "Smoke Detector",
+          "Heat Detector",
+          "Hooter-Sounder",
+        ],
+      },
+      {
+        title: "Lighting",
+        items: ["Exit-Emergency Light"],
+      },
+      {
+        title: "Suppression Systems",
+        items: [
+          "Kitchen Suppression",
+          "Fire Sprinkler",
+          "Gas-Based Suppression",
+        ],
       },
       {
         title: "Accessories",
-        items: ["Hoses", "Nozzles", "Brackets"],
+        items: ["Fire Blanket", "Safety Signage", "Firefighter PPE Kit"],
       },
     ],
   },
@@ -75,13 +96,17 @@ const Navbar = () => {
   }, []);
 
   // Close menu on link click (mobile)
-  const handleLinkClick = (link) => {
+  const handleLinkClick = (link, category = null) => {
     if (mobile) {
       setShowMenu(false);
       setShowMega(false);
     }
     if (link && link !== "#") {
-      navigate(link);
+      if (category) {
+        navigate(`${link}?category=${encodeURIComponent(category)}`);
+      } else {
+        navigate(link);
+      }
     }
   };
 
@@ -177,7 +202,9 @@ const Navbar = () => {
                               {col.items.map((sub, i) => (
                                 <li key={i}>
                                   <span
-                                    onClick={() => handleLinkClick("/products")}
+                                    onClick={() =>
+                                      handleLinkClick("/products", col.title)
+                                    }
                                   >
                                     {sub}
                                   </span>
@@ -198,7 +225,9 @@ const Navbar = () => {
                               {col.items.map((sub, i) => (
                                 <li key={i}>
                                   <span
-                                    onClick={() => handleLinkClick("/products")}
+                                    onClick={() =>
+                                      handleLinkClick("/products", col.title)
+                                    }
                                   >
                                     {sub}
                                   </span>
