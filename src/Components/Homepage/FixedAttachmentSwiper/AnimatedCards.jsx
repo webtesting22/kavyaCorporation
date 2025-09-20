@@ -190,7 +190,7 @@ const AnimatedCards = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="cta-section textCenter marginTop-60 fadeInUp">
+        {/* <div className="cta-section textCenter marginTop-60 fadeInUp">
           <div className="cta-content">
             <span className="cta-text">Complete fire safety solutions</span>
             <button className="cta-button" onClick={handleDownload}>
@@ -206,7 +206,7 @@ const AnimatedCards = () => {
               Fire Safety Guide
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
