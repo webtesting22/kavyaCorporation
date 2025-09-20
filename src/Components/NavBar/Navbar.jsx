@@ -30,9 +30,9 @@ const menuItems = [
       },
     ],
   },
-  { name: "Services", link: "#services" },
-  { name: "Training", link: "#training" },
-  { name: "Contact", link: "#contact" },
+  // { name: "Services", link: "#services" },
+  // { name: "Training", link: "#training" },
+  // { name: "Contact", link: "#contact" },
 ];
 
 const isMobile = () => window.innerWidth <= 900;

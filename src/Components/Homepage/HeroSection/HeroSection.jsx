@@ -103,7 +103,7 @@ const HeroSection = () => {
                       <div className="category-content">
                         <h3>{category.title}</h3>
                         <a href="#" className="learn-more-btn">
-                          LEARN MORE <IoMdArrowDropright />
+                          {/* LEARN MORE <IoMdArrowDropright /> */}
                         </a>
                       </div>
                     </div>
@@ -133,9 +133,9 @@ const HeroSection = () => {
                           </div>
                           <div className="category-content">
                             <h3>{category.title}</h3>
-                            <a href="#" className="learn-more-btn">
+                            {/* <a href="#" className="learn-more-btn">
                               LEARN MORE <IoMdArrowDropright />
-                            </a>
+                            </a> */}
                           </div>
                         </div>
                       </SwiperSlide>
