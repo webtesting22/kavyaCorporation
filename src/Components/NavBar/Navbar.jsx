@@ -14,40 +14,64 @@ const menuItems = [
     subMenu: [
       {
         title: "Extinguishers",
-        items: ["ABC Powder", "CO2", "Water", "Foam", "Clean Agent"],
+        items: [
+          { name: "ABC Powder", filter: "ABC Powder Fire Extinguisher" },
+          { name: "CO2", filter: "CO2 Fire Extinguisher" },
+          { name: "Water", filter: "Water Fire Extinguisher" },
+          { name: "Foam", filter: "Foam Fire Extinguisher" },
+          { name: "Clean Agent", filter: "Clean Agent Fire Extinguisher" },
+        ],
       },
       {
         title: "Hydrant Systems",
-        items: ["Fire Hydrant System", "Pillar Hydrant"],
+        items: [
+          { name: "Fire Hydrant System", filter: "Fire Hydrant System" },
+          { name: "Pillar Hydrant", filter: "Pillar Hydrant" },
+        ],
       },
       {
         title: "Hose Reels",
-        items: ["Fire Hose Reel System", "Canvas Fire Hose"],
+        items: [
+          { name: "Fire Hose Reel System", filter: "Fire Hose Reel System" },
+          { name: "Canvas Fire Hose", filter: "Canvas Fire Hose" },
+        ],
       },
       {
         title: "Alarm & Detection",
         items: [
-          "Control Panel",
-          "Smoke Detector",
-          "Heat Detector",
-          "Hooter-Sounder",
+          { name: "Control Panel", filter: "Fire Alarm Control Panel" },
+          { name: "Smoke Detector", filter: "Smoke Detector" },
+          { name: "Heat Detector", filter: "Heat Detector" },
+          { name: "Hooter-Sounder", filter: "Hooter-Sounder" },
         ],
       },
       {
         title: "Lighting",
-        items: ["Exit-Emergency Light"],
+        items: [
+          { name: "Exit-Emergency Light", filter: "Exit-Emergency Light" },
+        ],
       },
       {
         title: "Suppression Systems",
         items: [
-          "Kitchen Suppression",
-          "Fire Sprinkler",
-          "Gas-Based Suppression",
+          {
+            name: "Kitchen Suppression",
+            filter: "Kitchen Fire Suppression System",
+          },
+          { name: "Fire Sprinkler", filter: "Fire Sprinkler System" },
+          {
+            name: "Gas-Based Suppression",
+            filter: "Gas-Based Suppression System",
+          },
         ],
       },
       {
         title: "Accessories",
-        items: ["Fire Blanket", "Safety Signage", "Firefighter PPE Kit"],
+        items: [
+          { name: "Fire Blanket", filter: "Fire Blanket" },
+          { name: "Safety Signage", filter: "Safety Signage" },
+          { name: "Firefighter PPE Kit", filter: "Firefighter PPE Kit" },
+        ],
       },
     ],
   },
@@ -96,14 +120,14 @@ const Navbar = () => {
   }, []);
 
   // Close menu on link click (mobile)
-  const handleLinkClick = (link, category = null) => {
+  const handleLinkClick = (link, filter = null) => {
     if (mobile) {
       setShowMenu(false);
       setShowMega(false);
     }
     if (link && link !== "#") {
-      if (category) {
-        navigate(`${link}?category=${encodeURIComponent(category)}`);
+      if (filter) {
+        navigate(`${link}?filter=${encodeURIComponent(filter)}`);
       } else {
         navigate(link);
       }
@@ -203,10 +227,10 @@ const Navbar = () => {
                                 <li key={i}>
                                   <span
                                     onClick={() =>
-                                      handleLinkClick("/products", col.title)
+                                      handleLinkClick("/products", sub.filter)
                                     }
                                   >
-                                    {sub}
+                                    {sub.name}
                                   </span>
                                 </li>
                               ))}
@@ -226,10 +250,10 @@ const Navbar = () => {
                                 <li key={i}>
                                   <span
                                     onClick={() =>
-                                      handleLinkClick("/products", col.title)
+                                      handleLinkClick("/products", sub.filter)
                                     }
                                   >
-                                    {sub}
+                                    {sub.name}
                                   </span>
                                 </li>
                               ))}

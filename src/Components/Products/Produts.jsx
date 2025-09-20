@@ -297,21 +297,30 @@ const categories = [
 
 const Produts = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [filteredProduct, setFilteredProduct] = useState(null);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  // Handle URL parameters for category filtering
+  // Handle URL parameters for product filtering
   useEffect(() => {
-    const categoryFromUrl = searchParams.get("category");
-    if (categoryFromUrl && categories.includes(categoryFromUrl)) {
-      setSelectedCategory(categoryFromUrl);
+    const filterFromUrl = searchParams.get("filter");
+    if (filterFromUrl) {
+      // Find the product that matches the filter
+      const product = dummyProducts.find((p) => p.title === filterFromUrl);
+      if (product) {
+        setFilteredProduct(product);
+        setSelectedCategory(product.category);
+      }
+    } else {
+      setFilteredProduct(null);
     }
   }, [searchParams]);
 
-  const filteredProducts =
-    selectedCategory === "All"
-      ? dummyProducts
-      : dummyProducts.filter((p) => p.category === selectedCategory);
+  const filteredProducts = filteredProduct
+    ? [filteredProduct] // Show only the specific product
+    : selectedCategory === "All"
+    ? dummyProducts
+    : dummyProducts.filter((p) => p.category === selectedCategory);
 
   return (
     <div style={{ background: "#fff", minHeight: "100vh", padding: "40px 0" }}>
@@ -357,7 +366,12 @@ const Produts = () => {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => {
+                setSelectedCategory(cat);
+                setFilteredProduct(null);
+                // Update URL to remove filter parameter
+                navigate("/products");
+              }}
               style={{
                 background:
                   selectedCategory === cat
@@ -379,6 +393,24 @@ const Produts = () => {
             </button>
           ))}
         </div>
+        {/* Filter Status */}
+        {filteredProduct && (
+          <div style={{ marginBottom: 20, textAlign: "center" }}>
+            <div
+              style={{
+                background: "linear-gradient(45deg, #e63b3b, #ff6b6b)",
+                color: "#fff",
+                padding: "12px 24px",
+                borderRadius: 24,
+                display: "inline-block",
+                fontSize: 16,
+                fontWeight: 600,
+              }}
+            >
+              Showing: {filteredProduct.title}
+            </div>
+          </div>
+        )}
         {/* Product Grid */}
         <div
           style={{
